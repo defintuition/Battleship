@@ -9,7 +9,7 @@
 import UIKit
 
 class FirstViewController: UIViewController {
-  
+    
     @IBOutlet weak var gameLabel: UILabel!
     @IBOutlet weak var buttonContainer: UIView!
     
@@ -22,11 +22,11 @@ class FirstViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) {
         self.totalButtons = 100
         self.loaded = false
-      //  self.brain = MontyBrain(numCards: self.howManyCards)
+        //  self.brain = MontyBrain(numCards: self.howManyCards)
         super.init(coder: aDecoder)
     }
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -40,7 +40,7 @@ class FirstViewController: UIViewController {
     }
     
     
-// MARK: Functions
+    // MARK: Functions
     
     func disableShipButtons() {
         for v in buttonContainer.subviews {
@@ -52,76 +52,93 @@ class FirstViewController: UIViewController {
     
     // sets location in 2D-array to .hit
     func buttonTapped(sender: UIButton){
-        switch sender.tag {
-        case 1...10:
+        if sender.tag - 1 < 10 {
             if game1.buttons[0][sender.tag-1] == .hit {
-            sender.backgroundColor = UIColor.black
-            } else {
-                sender.backgroundColor = UIColor.brown
-            }
-        case 11...20:
-            if game1.buttons[1][(sender.tag-1) % 10] == .hit {
                 sender.backgroundColor = UIColor.black
-            //print(game1.buttons[1][(sender.tag-1) % 10])
-            } else {
-                sender.backgroundColor = UIColor.brown
             }
-            print(game1.buttons[1][2])
-        case 21...30:
-            if game1.buttons[2][(sender.tag-1) % 10] == .hit {
-                sender.backgroundColor = UIColor.black
-            } else {
-                sender.backgroundColor = UIColor.brown
+        }
+        else {
+            for i in 1..<10 {
+                if game1.buttons[i][(sender.tag-1) % 10] == .hit {
+                    sender.backgroundColor = UIColor.black
+                } else {
+                    sender.backgroundColor = UIColor.brown
+                }
+                
             }
-        case 31...40:
-            if game1.buttons[3][(sender.tag-1) % 10] == .hit {
-                sender.backgroundColor = UIColor.black
-            } else {
-                sender.backgroundColor = UIColor.brown
-            }
-        case 41...50:
-            if game1.buttons[4][(sender.tag-1) % 10] == .hit {
-                sender.backgroundColor = UIColor.black
-            } else {
-                sender.backgroundColor = UIColor.brown
-            }
-        case 51...60:
-            if game1.buttons[5][(sender.tag-1) % 10] == .hit {
-                sender.backgroundColor = UIColor.black
-            } else {
-                sender.backgroundColor = UIColor.brown
-            }
-        case 61...70:
-            if game1.buttons[6][(sender.tag-1) % 10] == .hit {
-                sender.backgroundColor = UIColor.black
-            } else {
-                sender.backgroundColor = UIColor.brown
-            }
-        case 71...80:
-            if game1.buttons[7][(sender.tag-1) % 10] == .hit {
-                sender.backgroundColor = UIColor.black
-            } else {
-                sender.backgroundColor = UIColor.brown
-            }
-        case 81...90:
-            if game1.buttons[8][(sender.tag-1) % 10] == .hit {
-                sender.backgroundColor = UIColor.black
-            } else {
-                sender.backgroundColor = UIColor.brown
-            }
-        case 91...100:
-            if game1.buttons[9][(sender.tag-1) % 10] == .hit {
-                sender.backgroundColor = UIColor.black
-            } else {
-                sender.backgroundColor = UIColor.brown
-            }
-            
-        default:
-            break
-    }
+        }
+        /*
+         switch sender.tag {
+         case 1...10:
+         if game1.buttons[0][sender.tag-1] == .hit {
+         sender.backgroundColor = UIColor.black
+         } else {
+         sender.backgroundColor = UIColor.brown
+         }
+         case 11...20:
+         if game1.buttons[1][(sender.tag-1) % 10] == .hit {
+         sender.backgroundColor = UIColor.black
+         //print(game1.buttons[1][(sender.tag-1) % 10])
+         } else {
+         sender.backgroundColor = UIColor.brown
+         }
+         print(game1.buttons[1][2])
+         case 21...30:
+         if game1.buttons[2][(sender.tag-1) % 10] == .hit {
+         sender.backgroundColor = UIColor.black
+         } else {
+         sender.backgroundColor = UIColor.brown
+         }
+         case 31...40:
+         if game1.buttons[3][(sender.tag-1) % 10] == .hit {
+         sender.backgroundColor = UIColor.black
+         } else {
+         sender.backgroundColor = UIColor.brown
+         }
+         case 41...50:
+         if game1.buttons[4][(sender.tag-1) % 10] == .hit {
+         sender.backgroundColor = UIColor.black
+         } else {
+         sender.backgroundColor = UIColor.brown
+         }
+         case 51...60:
+         if game1.buttons[5][(sender.tag-1) % 10] == .hit {
+         sender.backgroundColor = UIColor.black
+         } else {
+         sender.backgroundColor = UIColor.brown
+         }
+         case 61...70:
+         if game1.buttons[6][(sender.tag-1) % 10] == .hit {
+         sender.backgroundColor = UIColor.black
+         } else {
+         sender.backgroundColor = UIColor.brown
+         }
+         case 71...80:
+         if game1.buttons[7][(sender.tag-1) % 10] == .hit {
+         sender.backgroundColor = UIColor.black
+         } else {
+         sender.backgroundColor = UIColor.brown
+         }
+         case 81...90:
+         if game1.buttons[8][(sender.tag-1) % 10] == .hit {
+         sender.backgroundColor = UIColor.black
+         } else {
+         sender.backgroundColor = UIColor.brown
+         }
+         case 91...100:
+         if game1.buttons[9][(sender.tag-1) % 10] == .hit {
+         sender.backgroundColor = UIColor.black
+         } else {
+         sender.backgroundColor = UIColor.brown
+         }
+         
+         default:
+         break
+         */
+        
         sender.isEnabled = false
-}
-
+    }
+    
     
     func setUpGameButtons(v: UIView, totalButtons: Int, buttonsPerRow : Int) {
         for i in 1...100 {
@@ -154,24 +171,24 @@ class FirstViewController: UIViewController {
         let orientation = "horiz"
         if orientation == orientation {
             arrayOfShipIndexes.append([randomRow,randomCol])
-                if randomRow + 3 >= 10 {
-                    for i in 1..<3 {
-                        game1.buttons[randomRow - i][randomCol] = .hit
-                        print(randomRow - i,randomCol)
-                        arrayOfShipIndexes.append([randomRow - i, randomCol])
-                        //print(arrayOfShipIndexes)
-                    }
-                } else {
-                    for i in 1..<3 {
-                        game1.buttons[randomRow + i][randomCol] = .hit
-                        print(randomRow + i,randomCol)
-                        arrayOfShipIndexes.append([randomRow + i, randomCol])
-                      //  print(arrayOfShipIndexes)
-                    }
+            if randomRow + 3 >= 10 {
+                for i in 1..<3 {
+                    game1.buttons[randomRow - i][randomCol] = .hit
+                    print(randomRow - i,randomCol)
+                    arrayOfShipIndexes.append([randomRow - i, randomCol])
+                    //print(arrayOfShipIndexes)
                 }
-           // print(arrayOfShipIndexes)
+            } else {
+                for i in 1..<3 {
+                    game1.buttons[randomRow + i][randomCol] = .hit
+                    print(randomRow + i,randomCol)
+                    arrayOfShipIndexes.append([randomRow + i, randomCol])
+                    //  print(arrayOfShipIndexes)
+                }
             }
+            // print(arrayOfShipIndexes)
         }
+    }
     
     func createFiveButtonShip() {
         let randomRow = Int(arc4random_uniform(UInt32(9)))

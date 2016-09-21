@@ -22,7 +22,7 @@ class Battleship {
     
     var buttons = [[Status]]()
     
-    var buttonTwoDArray = [[Int]]()
+  // var buttonTwoDArray = [[Int]]()
     
     func buttonSetUp() {
         buttons = Array(repeating: [.miss,.miss,.miss,.miss,.miss,.miss,.miss,.miss,.miss,.miss], count: 10)
