@@ -3,6 +3,10 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+<<<<<<< HEAD
+=======
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+>>>>>>> human-vs-computer
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -10,7 +14,11 @@
         <!--First-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
+<<<<<<< HEAD
                 <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModule="Battleship" customModuleProvider="target" sceneMemberID="viewController">
+=======
+                <viewController id="9pv-A4-QxB" customClass="BattleshipViewController" customModule="Battleship" customModuleProvider="target" sceneMemberID="viewController">
+>>>>>>> human-vs-computer
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ia1-K6-d13"/>
                         <viewControllerLayoutGuide type="bottom" id="4ug-Mw-9AY"/>
@@ -19,17 +27,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+<<<<<<< HEAD
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="re1-eH-d2P">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A B C D E F G H I J K" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="41o-lb-SgD">
+=======
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b5i-v0-MPB" userLabel="Grid">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="b5i-v0-MPB" secondAttribute="height" multiplier="1:1" id="W2J-mh-67W"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WSH-9H-ETZ">
+>>>>>>> human-vs-computer
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bdc-rH-YFA">
+                                <state key="normal" title="Reset"/>
+                                <connections>
+                                    <action selector="resetTapped:" destination="9pv-A4-QxB" eventType="touchUpInside" id="KWc-P1-DeB"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+<<<<<<< HEAD
                             <constraint firstAttribute="leadingMargin" secondItem="re1-eH-d2P" secondAttribute="leading" id="8Xw-XO-Vbh"/>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="re1-eH-d2P" secondAttribute="bottom" constant="76" id="G5A-ie-Adf"/>
                             <constraint firstItem="41o-lb-SgD" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="33" id="Ks6-dC-7X2"/>
@@ -37,12 +62,26 @@
                             <constraint firstItem="re1-eH-d2P" firstAttribute="top" secondItem="41o-lb-SgD" secondAttribute="bottom" constant="50.5" id="S88-5R-QSg"/>
                             <constraint firstAttribute="trailingMargin" secondItem="re1-eH-d2P" secondAttribute="trailing" id="TgR-3U-WN3"/>
                             <constraint firstItem="41o-lb-SgD" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="qhL-D9-enS"/>
+=======
+                            <constraint firstAttribute="trailingMargin" secondItem="bdc-rH-YFA" secondAttribute="trailing" id="CRo-Fb-U9a"/>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="WSH-9H-ETZ" secondAttribute="bottom" constant="17" id="TJi-5t-dO2"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="b5i-v0-MPB" secondAttribute="trailing" id="Zuo-Fi-tW4"/>
+                            <constraint firstItem="b5i-v0-MPB" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="100" id="eJp-CV-wgN"/>
+                            <constraint firstItem="WSH-9H-ETZ" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="k3Q-H2-Nd2"/>
+                            <constraint firstItem="b5i-v0-MPB" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" id="lR9-DJ-F7P"/>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="bdc-rH-YFA" secondAttribute="bottom" constant="13" id="sin-tM-Nj0"/>
+>>>>>>> human-vs-computer
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="First" image="first" id="acW-dT-cKf"/>
                     <connections>
+<<<<<<< HEAD
                         <outlet property="buttonContainer" destination="re1-eH-d2P" id="6Zn-Dx-ihx"/>
                         <outlet property="gameLabel" destination="41o-lb-SgD" id="gN6-bj-ekK"/>
+=======
+                        <outlet property="gridView" destination="b5i-v0-MPB" id="c8b-j9-abD"/>
+                        <outlet property="messageLabel" destination="WSH-9H-ETZ" id="mYl-tE-HSL"/>
+>>>>>>> human-vs-computer
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
